@@ -1,32 +1,65 @@
-Write a function that determines a valid package installation order by resolving dependencies. Use topological sorting to ensure dependencies are installed before the packages that require them.
+#06 - Nível 3
+Exercício: py_package_dependency_resolver
+Arquivo: py_package_dependency_resolver.py
 
-The function should:
-- Take a dictionary where keys are package names and values are lists of dependencies
-- Return packages in installation order (dependencies first)
-- Return empty list if no valid order exists (circular dependencies)
-- Handle empty input and isolated dependency chains
-- Ignore references to packages not in the input dictionary
+Regras e restrições da Moulinette (conforme o site)
+Funções/módulos proibidos: graphlib.TopologicalSorter.
+Somente a sintaxe padrão do Python 3 é permitida. Não use pacotes de terceiros nem módulos proibidos.
 
-Algorithm requirements:
-- Use topological sorting (e.g., Kahn's algorithm)
-- Process packages with no remaining dependencies first
-- Ensure deterministic output when multiple valid orders exist
+Enunciado
+Escreva uma função que determine uma ordem válida de instalação de pacotes resolvendo suas dependências. Use ordenação topológica para garantir que as dependências sejam instaladas antes dos pacotes que precisam delas.
 
-Edge cases to handle:
-- Empty input: return empty list
-- Packages with no dependencies: include in output first
-- Multiple independent chains: process all chains
-- Circular dependencies: return empty list
-- Non-existent dependencies: ignore missing packages
-- Self-dependencies: return empty list
+A função deve:
+- Receber um dicionário cujas chaves são nomes de pacotes e cujos valores são listas de dependências.
+- Retornar os pacotes em ordem de instalação, com as dependências primeiro.
+- Retornar uma lista vazia se não existir ordem válida, devido a dependências circulares.
+- Tratar entrada vazia e cadeias de dependências isoladas.
+- Ignorar referências a pacotes ausentes do dicionário de entrada.
 
-Notes:
-- For deterministic output, process packages alphabetically when choices exist
-- A package cannot be installed until all its dependencies are installed
-- If any circular dependency exists, no valid installation order is possible
+Requisitos do algoritmo:
+- Use ordenação topológica, por exemplo, o algoritmo de Kahn.
+- Processe primeiro os pacotes que não possuem dependências pendentes.
+- Garanta uma saída determinística quando houver várias ordens válidas.
 
-package_dependency_resolver({"app": ["database"], "database": ["driver"], "driver": []})  # Expected: ["driver", "database", "app"]
-package_dependency_resolver({"A": [], "B": ["A"], "C": ["A", "B"]})  # Expected: ["A", "B", "C"]
-package_dependency_resolver({})  # Expected: []
-package_dependency_resolver({"X": ["Y"], "Y": ["X"]})  # Expected: []
-package_dependency_resolver({"web": [], "api": [], "frontend": ["web"], "backend": ["api"]})  # Expected: ["api", "web", "backend", "frontend"]
+Casos especiais:
+- Entrada vazia: retorne uma lista vazia.
+- Pacotes sem dependências: inclua-os primeiro na saída.
+- Várias cadeias independentes: processe todas.
+- Dependências circulares: retorne uma lista vazia.
+- Dependências inexistentes: ignore os pacotes ausentes.
+- Pacote que depende de si mesmo: retorne uma lista vazia.
+
+Observações do enunciado:
+- Quando houver escolhas, processe os pacotes em ordem alfabética para obter uma saída determinística.
+- Um pacote só pode ser instalado depois que todas as suas dependências forem instaladas.
+- Se existir qualquer dependência circular, não será possível obter uma ordem válida de instalação.
+
+Assinatura da função
+def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
+
+Exemplos
+
+Exemplo 1
+Entrada: package_dependency_resolver({"app": ["database"], "database": ["driver"], "driver": []})
+Saída: ["driver", "database", "app"]
+
+Exemplo 2
+Entrada: package_dependency_resolver({"A": [], "B": ["A"], "C": ["A", "B"]})
+Saída: ["A", "B", "C"]
+
+Exemplo 3
+Entrada: package_dependency_resolver({})
+Saída: []
+
+Exemplo 4
+Entrada: package_dependency_resolver({"X": ["Y"], "Y": ["X"]})
+Saída: []
+
+Exemplo 5
+Entrada: package_dependency_resolver({"web": [], "api": [], "frontend": ["web"], "backend": ["api"]})
+Saída: ["api", "web", "backend", "frontend"]
+
+Nota de revisão (não faz parte do enunciado):
+O último exemplo foi preservado como está no site. A saída ["api", "web", "backend", "frontend"] é uma ordem topológica válida, mas diverge da regra de escolher alfabeticamente entre todos os pacotes disponíveis a cada passo: essa regra produziria ["api", "backend", "web", "frontend"]. O site não esclarece se a prioridade alfabética deve ser aplicada por rodada ou a cada escolha.
+
+Aviso da fonte: material não oficial. As questões podem variar conforme o campus ou a piscina. Leia atentamente o subject oficial durante a prova.

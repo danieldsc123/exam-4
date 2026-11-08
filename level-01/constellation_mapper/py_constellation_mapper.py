@@ -3,13 +3,19 @@ def constellation_mapper(stars: list[tuple[int, int]], dim: int) -> list[str]:
 
 	for line in range(dim):
 		lines:str = ""
+
 		for col in range(dim):
 			if (line, col) in stars:
 				lines += "*"
+
 			else:
 				lines += "."
+
 		dst.append(lines)
+
 	return dst
+
+
 
 if __name__ == "__main__":
 	print("Result:", constellation_mapper([(0, 0), (1, 1), (2, 2)], 3), "| Expected:", ['*..', '.*.', '..*'])

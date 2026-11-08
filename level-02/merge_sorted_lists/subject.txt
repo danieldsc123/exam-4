@@ -1,31 +1,70 @@
-Write a function that merges multiple sorted lists into one sorted list while maintaining the sort order efficiently.
+#04 - Nível 2
+Exercício: py_merge_sorted_lists
+Arquivo: py_merge_sorted_lists.py
 
-The function should:
-- Take a list of sorted integer lists as input
-- Return a single merged list in ascending order
-- Preserve all duplicate elements in the final result
-- Handle empty lists and empty input gracefully
-- Maintain optimal efficiency for large inputs
+Regras e restrições da Moulinette (conforme o site)
+Funções/módulos proibidos: sorted(), .sort(), heapq.merge().
+Somente a sintaxe padrão do Python 3 é permitida. Não use pacotes de terceiros nem módulos proibidos.
 
-Rules:
-- All input lists are guaranteed to be sorted in ascending order
-- Empty lists should be ignored during merging
-- Return empty list if no valid input is provided
-- Preserve duplicates across different lists
-- Handle negative numbers correctly
+Enunciado
+Escreva uma função que mescle várias listas ordenadas em uma única lista ordenada, mantendo a ordem de maneira eficiente.
 
-Edge cases to handle:
-- Empty input list: return empty list
-- Lists containing only empty lists: return empty list
-- Single list input: return copy of that list
-- All duplicate elements: preserve all instances
-- Negative numbers: handle correctly in sort order
+A função deve:
+- Receber uma lista de listas de inteiros ordenadas.
+- Retornar uma única lista mesclada em ordem crescente.
+- Preservar todos os elementos duplicados no resultado.
+- Tratar listas vazias e entrada vazia.
+- Manter eficiência ótima para entradas grandes.
 
-merge_sorted_lists([[1, 3, 5], [2, 4, 6]])  # Expected: [1, 2, 3, 4, 5, 6]
-merge_sorted_lists([[1, 5, 9], [2, 3, 8], [4, 6, 7]])  # Expected: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-merge_sorted_lists([[5], [1, 3], [2, 4]])  # Expected: [1, 2, 3, 4, 5]
-merge_sorted_lists([[1, 1, 2], [2, 3, 3]])  # Expected: [1, 1, 2, 2, 3, 3]
-merge_sorted_lists([[], [1, 2, 3]])  # Expected: [1, 2, 3]
-merge_sorted_lists([[]])  # Expected: []
-merge_sorted_lists([[-5, -1, 0], [-3, 2, 4]])  # Expected: [-5, -3, -1, 0, 2, 4]
-merge_sorted_lists([[10], [10], [10]])  # Expected: [10, 10, 10]
+Regras:
+- Todas as listas de entrada estão garantidamente em ordem crescente.
+- Ignore listas vazias durante a mesclagem.
+- Retorne uma lista vazia se nenhuma entrada válida for fornecida.
+- Preserve duplicatas entre listas diferentes.
+- Trate corretamente números negativos.
+
+Casos especiais:
+- Lista de entrada vazia: retorne uma lista vazia.
+- Entrada contendo apenas listas vazias: retorne uma lista vazia.
+- Uma única lista: retorne uma cópia dela.
+- Elementos todos iguais: preserve todas as ocorrências.
+- Números negativos: respeite a ordem crescente.
+
+Assinatura da função
+def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
+
+Exemplos
+
+Exemplo 1
+Entrada: merge_sorted_lists([[1, 3, 5], [2, 4, 6]])
+Saída: [1, 2, 3, 4, 5, 6]
+
+Exemplo 2
+Entrada: merge_sorted_lists([[1, 5, 9], [2, 3, 8], [4, 6, 7]])
+Saída: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Exemplo 3
+Entrada: merge_sorted_lists([[5], [1, 3], [2, 4]])
+Saída: [1, 2, 3, 4, 5]
+
+Exemplo 4
+Entrada: merge_sorted_lists([[1, 1, 2], [2, 3, 3]])
+Saída: [1, 1, 2, 2, 3, 3]
+
+Exemplo 5
+Entrada: merge_sorted_lists([[], [1, 2, 3]])
+Saída: [1, 2, 3]
+
+Exemplo 6
+Entrada: merge_sorted_lists([[]])
+Saída: []
+
+Exemplo 7
+Entrada: merge_sorted_lists([[-5, -1, 0], [-3, 2, 4]])
+Saída: [-5, -3, -1, 0, 2, 4]
+
+Exemplo 8
+Entrada: merge_sorted_lists([[10], [10], [10]])
+Saída: [10, 10, 10]
+
+Aviso da fonte: material não oficial. As questões podem variar conforme o campus ou a piscina. Leia atentamente o subject oficial durante a prova.

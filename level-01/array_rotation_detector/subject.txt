@@ -1,13 +1,43 @@
-Write a Python function that takes two lists (arrays) as parameters and determines if the second list is a rotation of the first list (left or right).
+#01 - Nível 1
+Exercício: py_array_rotation_detector
+Arquivo: py_array_rotation_detector.py
 
-A rotation means that the elements are shifted circularly. For example, shifting [1, 2, 3] to the right by one position results in [3, 1, 2].
+Regras e restrições da Moulinette (conforme o site)
+Funções/módulos proibidos: collections.deque.rotate().
+Somente a sintaxe padrão do Python 3 é permitida. Não use pacotes de terceiros nem módulos proibidos.
 
-The function must return True if arr2 is a rotation of arr1, and False otherwise.
-If the arrays have different lengths, they cannot be rotations of each other.
-Two empty arrays are considered rotations of each other.
+Enunciado
+Escreva uma função Python que receba duas listas (arrays) e determine se a segunda é uma rotação da primeira, para a esquerda ou para a direita.
 
-array_rotation_detector([1, 2, 3, 4, 5], [4, 5, 1, 2, 3])  # Expected: True
-array_rotation_detector([1, 2, 3, 4, 5], [5, 1, 2, 3, 4])  # Expected: True
-array_rotation_detector([1, 2, 3], [3, 2, 1])  # Expected: False
-array_rotation_detector([1, 2], [1, 2, 3])  # Expected: False
-array_rotation_detector([], [])  # Expected: True
+Uma rotação desloca os elementos circularmente. Por exemplo, deslocar [1, 2, 3] uma posição para a direita resulta em [3, 1, 2].
+
+- Retorne True se arr2 for uma rotação de arr1; caso contrário, retorne False.
+- Listas de tamanhos diferentes não podem ser rotações uma da outra.
+- Duas listas vazias são consideradas rotações uma da outra.
+
+Assinatura da função
+def array_rotation_detector(arr1: list, arr2: list) -> bool:
+
+Exemplos
+
+Exemplo 1
+Entrada: array_rotation_detector([1, 2, 3, 4, 5], [4, 5, 1, 2, 3])
+Saída: True
+
+Exemplo 2
+Entrada: array_rotation_detector([1, 2, 3, 4, 5], [5, 1, 2, 3, 4])
+Saída: True
+
+Exemplo 3
+Entrada: array_rotation_detector([1, 2, 3], [3, 2, 1])
+Saída: False
+
+Exemplo 4
+Entrada: array_rotation_detector([1, 2], [1, 2, 3])
+Saída: False
+
+Exemplo 5
+Entrada: array_rotation_detector([], [])
+Saída: True
+
+Aviso da fonte: material não oficial. As questões podem variar conforme o campus ou a piscina. Leia atentamente o subject oficial durante a prova.

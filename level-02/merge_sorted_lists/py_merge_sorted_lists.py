@@ -1,8 +1,13 @@
 def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
 	result = []
+
 	for num in lists:
 		result.extend(num)
+
 	return sorted(result)
+
+
+
 
 if __name__ == "__main__":
 	print("Result:", merge_sorted_lists([[1, 3, 5], [2, 4, 6]]), "| Expected:", [1, 2, 3, 4, 5, 6])

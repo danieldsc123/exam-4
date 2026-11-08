@@ -1,14 +1,38 @@
-Given a string `s`, find the minimum number of cuts needed to partition it such that every resulting substring is a palindrome.
+#05 - Nível 3
+Exercício: py_palindrome_partitioner
+Arquivo: py_palindrome_partitioner.py
 
-A cut divides the string between two characters. With `c` cuts, the string is split into `c + 1` substrings. We want the minimum number of cuts `c` such that all parts are palindromes.
+Regras e restrições da Moulinette (conforme o site)
+Funções permitidas: nenhuma (o site exibe "None.").
+Somente a sintaxe padrão do Python 3 é permitida. Não use pacotes de terceiros nem módulos proibidos.
 
-Return this minimum number of cuts (an integer).
+Enunciado
+Dada uma string s, encontre o número mínimo de cortes necessários para dividi-la de modo que cada substring resultante seja um palíndromo.
 
-Constraints:
-- An empty string or a string of length 1 is already a palindrome -> 0 cuts.
-- If the entire string is already a palindrome -> 0 cuts.
-- In the worst case (all characters are distinct), the result is len(s) - 1 cuts.
+Um corte divide a string entre dois caracteres. Com c cortes, a string é dividida em c + 1 substrings. Encontre o menor número de cortes c para que todas as partes sejam palíndromos.
 
-palindrome_partitioner("aab")  # Expected: 1
-palindrome_partitioner("aba")  # Expected: 0
-palindrome_partitioner("abc")  # Expected: 2
+Retorne esse número mínimo de cortes como um inteiro.
+
+Restrições:
+- Uma string vazia ou com apenas um caractere exige 0 cortes.
+- Se a string inteira já for um palíndromo, são necessários 0 cortes.
+- No pior caso, quando todos os caracteres são distintos, o resultado é len(s) - 1 cortes.
+
+Assinatura da função
+def palindrome_partitioner(s: str) -> int:
+
+Exemplos
+
+Exemplo 1
+Entrada: palindrome_partitioner("aab")
+Saída: 1
+
+Exemplo 2
+Entrada: palindrome_partitioner("aba")
+Saída: 0
+
+Exemplo 3
+Entrada: palindrome_partitioner("abc")
+Saída: 2
+
+Aviso da fonte: material não oficial. As questões podem variar conforme o campus ou a piscina. Leia atentamente o subject oficial durante a prova.

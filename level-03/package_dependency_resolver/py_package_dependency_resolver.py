@@ -4,6 +4,7 @@ def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
 
 	for package, dependencies in packages.items():
 		pending[package] = set()
+
 		for dependency in dependencies:
 			if dependency in packages:
 				pending[package].add(dependency)

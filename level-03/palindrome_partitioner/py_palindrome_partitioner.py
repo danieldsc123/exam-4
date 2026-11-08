@@ -1,9 +1,12 @@
 def palindrome_partitioner(s: str) -> int:
 	count = 0
 	reverse = s[::-1]
+
 	if s == reverse:
 		return 0
+
 	small = len(s) - 1
+
 	for position in range(1, len(s)):
 		left = s[:position]
 		right = s[position:]
@@ -13,6 +16,7 @@ def palindrome_partitioner(s: str) -> int:
 
 			if count < small:
 				small = count
+
 	return small
 
 

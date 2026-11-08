@@ -1,16 +1,49 @@
-Write a function that maps a constellation of stars onto a grid and returns the visual representation as a list of strings.
+#02 - Nível 1
+Exercício: py_constellation_mapper
+Arquivo: py_constellation_mapper.py
 
-The function should:
-- Take a list of star coordinates as tuples (row, col) and grid size as integer
-- Return a list of strings representing the grid
-- Stars are represented by '*' and empty spaces by '.'
-- Grid coordinates start from (0, 0) at top-left
-- Ignore coordinates outside the grid boundaries
-- Handle duplicate coordinates (star appears only once)
+Regras e restrições da Moulinette (conforme o site)
+Funções permitidas: nenhuma (o site exibe "None.").
+Somente a sintaxe padrão do Python 3 é permitida. Não use pacotes de terceiros nem módulos proibidos.
 
-constellation_mapper([(0, 0), (1, 1), (2, 2)], 3)  # Expected: ['*..', '.*.', '..*']
-constellation_mapper([(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)  # Expected: ['.*.', '***', '.*.']
-constellation_mapper([], 2)  # Expected: ['..', '..']
-constellation_mapper([(0, 0), (0, 0), (1, 1)], 2)  # Expected: ['*.', '.*']
-constellation_mapper([(0, 0), (5, 5)], 3)  # Expected: ['*..', '...', '...']
-constellation_mapper([(1, 0), (1, 1), (1, 2)], 3)  # Expected: ['...', '***', '...']
+Enunciado
+Escreva uma função que mapeie uma constelação de estrelas em uma grade e retorne sua representação visual como uma lista de strings.
+
+A função deve:
+- Receber uma lista de coordenadas de estrelas como tuplas (linha, coluna) e o tamanho da grade como um inteiro.
+- Retornar uma lista de strings representando a grade.
+- Representar estrelas com '*' e espaços vazios com '.'.
+- Considerar que as coordenadas começam em (0, 0), no canto superior esquerdo.
+- Ignorar coordenadas fora dos limites da grade.
+- Tratar coordenadas duplicadas: a estrela aparece apenas uma vez.
+
+Assinatura da função
+def constellation_mapper(stars: list[tuple[int, int]], dim: int) -> list[str]:
+
+Exemplos
+
+Exemplo 1
+Entrada: constellation_mapper([(0, 0), (1, 1), (2, 2)], 3)
+Saída: ['*..', '.*.', '..*']
+
+Exemplo 2
+Entrada: constellation_mapper([(1, 1), (0, 1), (2, 1), (1, 0), (1, 2)], 3)
+Saída: ['.*.', '***', '.*.']
+
+Exemplo 3
+Entrada: constellation_mapper([], 2)
+Saída: ['..', '..']
+
+Exemplo 4
+Entrada: constellation_mapper([(0, 0), (0, 0), (1, 1)], 2)
+Saída: ['*.', '.*']
+
+Exemplo 5
+Entrada: constellation_mapper([(0, 0), (5, 5)], 3)
+Saída: ['*..', '...', '...']
+
+Exemplo 6
+Entrada: constellation_mapper([(1, 0), (1, 1), (1, 2)], 3)
+Saída: ['...', '***', '...']
+
+Aviso da fonte: material não oficial. As questões podem variar conforme o campus ou a piscina. Leia atentamente o subject oficial durante a prova.

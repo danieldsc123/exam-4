@@ -1,10 +1,13 @@
 def sliding_window_maximum(nums: list[int], k: int) -> list[int]:
 	result = []
+
 	if not nums or k <= 0:
 		return []
+
 	for init in range(len(nums) - k + 1):
 		window = nums[init:init + k]
 		result.append(max(window))
+
 	return result
 
 

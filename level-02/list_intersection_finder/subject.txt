@@ -1,17 +1,53 @@
-Write a function that finds the intersection of multiple sorted lists.
-Return a new list containing elements that appear in ALL input lists, in sorted order.
+#03 - Nível 2
+Exercício: py_list_intersection_finder
+Arquivo: py_list_intersection_finder.py
 
-The function should:
-- Return elements that appear in ALL lists
-- Result should be sorted in ascending order
-- Remove duplicates from the result
-- Handle empty input or empty lists gracefully
-- If any list is empty, the intersection is empty
+Regras e restrições da Moulinette (conforme o site)
+Funções permitidas: nenhuma (o site exibe "None.").
+Somente a sintaxe padrão do Python 3 é permitida. Não use pacotes de terceiros nem módulos proibidos.
 
-list_intersection_finder([[1, 2, 3], [2, 3, 4], [2, 3, 5]])  # Expected: [2, 3]
-list_intersection_finder([[1, 2, 3, 4], [2, 4, 6, 8], [4, 8, 12]])  # Expected: [4]
-list_intersection_finder([[1, 1, 2, 3], [1, 2, 2, 3], [1, 2, 3, 3]])  # Expected: [1, 2, 3]
-list_intersection_finder([[1, 2, 3], [4, 5, 6]])  # Expected: []
-list_intersection_finder([])  # Expected: []
-list_intersection_finder([[1, 2, 3], []])  # Expected: []
-list_intersection_finder([[5]])  # Expected: [5]
+Enunciado
+Escreva uma função que encontre a interseção de várias listas ordenadas.
+Retorne uma nova lista com os elementos presentes em TODAS as listas de entrada, em ordem crescente.
+
+A função deve:
+- Retornar somente elementos presentes em TODAS as listas.
+- Ordenar o resultado em ordem crescente.
+- Remover duplicatas do resultado.
+- Tratar a entrada vazia e listas vazias.
+- Retornar uma lista vazia se a entrada estiver vazia ou se qualquer lista estiver vazia.
+
+Assinatura da função
+def list_intersection_finder(lists: list[list[int]]) -> list[int]:
+
+Exemplos
+
+Exemplo 1
+Entrada: list_intersection_finder([[1, 2, 3], [2, 3, 4], [2, 3, 5]])
+Saída: [2, 3]
+
+Exemplo 2
+Entrada: list_intersection_finder([[1, 2, 3, 4], [2, 4, 6, 8], [4, 8, 12]])
+Saída: [4]
+
+Exemplo 3
+Entrada: list_intersection_finder([[1, 1, 2, 3], [1, 2, 2, 3], [1, 2, 3, 3]])
+Saída: [1, 2, 3]
+
+Exemplo 4
+Entrada: list_intersection_finder([[1, 2, 3], [4, 5, 6]])
+Saída: []
+
+Exemplo 5
+Entrada: list_intersection_finder([])
+Saída: []
+
+Exemplo 6
+Entrada: list_intersection_finder([[1, 2, 3], []])
+Saída: []
+
+Exemplo 7
+Entrada: list_intersection_finder([[5]])
+Saída: [5]
+
+Aviso da fonte: material não oficial. As questões podem variar conforme o campus ou a piscina. Leia atentamente o subject oficial durante a prova.
