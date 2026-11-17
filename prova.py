@@ -1,2 +1,2 @@
-def constellation_mapper(stars: list[tuple[int, int]], dim: int) -> list[str]:
+def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
     

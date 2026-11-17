@@ -1,4 +1,25 @@
 def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
+    result = []
+
+    while len(result) < len(packages):
+        ready = [
+            p for p in sorted(packages)
+            if p not in result
+            and all(d not in packages or d in result for d in packages[p])
+        ]
+
+        if not ready:
+            return []
+
+        result.extend(ready)
+
+    return result
+
+
+
+
+
+"""def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
 	result = []
 	pending = {}
 
@@ -26,14 +47,4 @@ def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
 		for dependencies in pending.values():
 			dependencies.difference_update(ready)
 
-	return result
-
-
-
-
-if __name__ == "__main__":
-	print("Result:", package_dependency_resolver({"app": ["database"], "database": ["driver"], "driver": []}), "| Expected:", ["driver", "database", "app"])
-	print("Result:", package_dependency_resolver({"A": [], "B": ["A"], "C": ["A", "B"]}), "| Expected:", ["A", "B", "C"])
-	print("Result:", package_dependency_resolver({}), "| Expected:", [])
-	print("Result:", package_dependency_resolver({"X": ["Y"], "Y": ["X"]}), "| Expected:", [])
-	print("Result:", package_dependency_resolver({"web": [], "api": [], "frontend": ["web"], "backend": ["api"]}), "| Expected:", ["api", "web", "backend", "frontend"])
+	return result"""
