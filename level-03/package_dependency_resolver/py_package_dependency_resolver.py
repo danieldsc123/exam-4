@@ -2,10 +2,8 @@ def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
     result = []
 
     while len(result) < len(packages):
-        ready = [
-            p for p in sorted(packages)
-            if p not in result
-            and all(d not in packages or d in result for d in packages[p])
+        ready = [ package for package in sorted(packages) if package not in result
+            and all(dependency not in packages or dependency in result for dependency in packages[package])
         ]
 
         if not ready:
@@ -14,8 +12,6 @@ def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
         result.extend(ready)
 
     return result
-
-
 
 
 
