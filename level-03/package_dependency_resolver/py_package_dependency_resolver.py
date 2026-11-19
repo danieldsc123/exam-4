@@ -17,7 +17,7 @@ def package_dependency_resolver(packages: dict[str, list[str]]) -> list[str]:
 
         result.extend(ready)
 
-    return sorted(result)
+    return result
 
 
 
